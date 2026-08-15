@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Admin · The Octagon League</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ LOGIN ============ -->
+<div class="login-wrap" id="loginWrap">
+  <div class="glass login-card">
+    <div class="brand-mark">8</div>
+    <h2>Admin Access</h2>
+    <p style="margin-top:6px;margin-bottom:22px;font-size:12.5px;">The Octagon League tournament control panel</p>
+    <div class="field" style="text-align:left">
+      <label>Email</label>
+      <input type="email" id="loginEmail" placeholder="admin@example.com" autocomplete="username">
+    </div>
+    <div class="field" style="text-align:left">
+      <label>Password</label>
+      <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password">
+    </div>
+    <button class="btn btn-primary btn-block" id="loginBtn">Sign In</button>
+    <div class="login-error" id="loginError"></div>
+  </div>
+</div>
+
+<!-- ============ ADMIN SHELL ============ -->
+<div class="admin-shell" id="adminShell" style="display:none;">
+  <div class="brand-row">
+    <div class="brand">
+      <div class="brand-mark">8</div>
+      <div class="brand-name">OCTAGON <span>ADMIN</span></div>
+    </div>
+    <button class="icon-btn" id="logoutBtn"></button>
+  </div>
+
+  <div class="admin-tabs">
+    <button class="admin-tab active" data-tab="players">Players</button>
+    <button class="admin-tab" data-tab="seasons">Seasons</button>
+    <button class="admin-tab" data-tab="matches">Bracket &amp; Matches</button>
+    <button class="admin-tab" data-tab="awards">Awards</button>
+  </div>
+
+  <!-- PLAYERS -->
+  <div class="admin-panel" id="panel-players">
+    <button class="btn btn-primary" id="addPlayerBtn" style="margin-bottom:16px;"></button>
+    <div id="playersList"></div>
+  </div>
+
+  <!-- SEASONS -->
+  <div class="admin-panel" id="panel-seasons" style="display:none;">
+    <button class="btn btn-primary" id="addSeasonBtn" style="margin-bottom:16px;"></button>
+    <div id="seasonsList"></div>
+
+    <div class="demo-utility">
+      <button class="btn btn-ghost btn-sm" id="seedDemoBtn"></button>
+      <button class="btn btn-ghost btn-sm" id="clearDemoBtn"></button>
+    </div>
+  </div>
+
+  <!-- MATCHES / BRACKET -->
+  <div class="admin-panel" id="panel-matches" style="display:none;">
+    <div class="field">
+      <label>Season</label>
+      <select id="matchSeasonSelect"></select>
+    </div>
+    <div id="bracketBuilder"></div>
+  </div>
+
+  <!-- AWARDS -->
+  <div class="admin-panel" id="panel-awards" style="display:none;">
+    <div class="field">
+      <label>Season</label>
+      <select id="awardsSeasonSelect"></select>
+    </div>
+    <div class="glass card">
+      <div class="eyebrow" style="margin-bottom:12px;">GOLDEN BOOT — AUTOMATIC</div>
+      <div id="goldenBootPreview" style="font-size:13.5px;color:var(--ink-dim);"></div>
+    </div>
+    <div class="glass card">
+      <div class="eyebrow" style="margin-bottom:12px;">SEASON MVP — SET MANUALLY</div>
+      <div class="field" style="margin-bottom:12px;"><select id="mvpPlayerSelect"></select></div>
+      <button class="btn btn-primary btn-block" id="saveMvpBtn">Save MVP</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MODAL (player / season) ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="glass modal-sheet">
+    <div class="modal-head">
+      <h3 id="modalTitle"></h3>
+      <button class="icon-btn" id="modalCloseBtn"></button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
